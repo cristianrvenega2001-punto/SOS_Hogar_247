@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SOS Hogar 24/7 | Técnico Certificado Los Andes, San Felipe, Calle Larga</title>
+  <meta name="description" content="Servicios de emergencia y mantención integral para el hogar y empresas. Electricidad, gasfitería, construcción y terminaciones. Disponibilidad 24/7 en Los Andes, San Felipe, Calle Larga, Rinconada, San Esteban y Santa María. Técnico certificado SENCE." />
+  <meta name="keywords" content="técnico eléctrico Los Andes, gasfiter urgencia San Felipe, mantención hogar 24 horas, construcción Los Andes, emergencias eléctricas, fuga de gas, SOS Hogar, techumbre Los Andes, carpintería Los Andes" />
+  <meta name="author" content="Cristian Venega Gómez" />
+  <meta property="og:title" content="SOS Hogar 24/7 | Emergencias y Construcción" />
+  <meta property="og:description" content="Técnico certificado. Respuesta inmediata 24/7 en Los Andes y alrededores." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sos: '#E81010', sosdark: '#B30D0D',
+            carbon: '#111214', gunmetal: '#1C1E22',
+            steel: '#2A2D33', ash: '#3E4148',
+            fog: '#9AA0AC', light: '#E8EAF0',
+          },
+          fontFamily: {
+            display: ['Barlow Condensed', 'sans-serif'],
+            body: ['Barlow', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    :root { --sos:#E81010; --sosdark:#B30D0D; --carbon:#111214; --gunmetal:#1C1E22; --steel:#2A2D33; }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { background:var(--carbon); color:#E8EAF0; font-family:'Barlow',sans-serif; overflow-x:hidden; }
+
+    /* Noise overlay */
+    body::before { content:''; position:fixed; inset:0; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events:none; z-index:0; opacity:.4; }
+
+    #navbar { transition:all .3s ease; }
+    #navbar.scrolled { background:rgba(17,18,20,0.97)!important; box-shadow:0 1px 0 rgba(232,16,16,0.3); backdrop-filter:blur(10px); }
+
+    .hero-bg { background: linear-gradient(135deg,rgba(232,16,16,0.08) 0%,transparent 50%), radial-gradient(ellipse at 70% 50%,rgba(232,16,16,0.06) 0%,transparent 60%), var(--carbon); }
+    .hero-grid { background-image:linear-gradient(rgba(232,16,16,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(232,16,16,0.07) 1px,transparent 1px); background-size:60px 60px; }
+
+    .sos-badge { display:inline-flex; align-items:center; gap:8px; background:rgba(232,16,16,0.1); border:1px solid rgba(232,16,16,0.3); border-radius:2px; padding:6px 14px; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:13px; letter-spacing:3px; text-transform:uppercase; color:var(--sos); animation:pulseGlow 2s ease-in-out infinite; }
+    @keyframes pulseGlow { 0%,100%{box-shadow:0 0 0 0 rgba(232,16,16,0)}50%{box-shadow:0 0 16px 2px rgba(232,16,16,0.2)} }
+
+    .hero-title { font-family:'Barlow Condensed',sans-serif; font-weight:900; line-height:.9; text-transform:uppercase; }
+    .hero-title .accent { color:var(--sos); }
+    .hero-title .outline { -webkit-text-stroke:2px rgba(232,16,16,0.4); color:transparent; }
+    .hero-stat { border-left:3px solid var(--sos); padding-left:16px; }
+
+    .marquee-track { display:flex; gap:0; animation:marquee 18s linear infinite; white-space:nowrap; }
+    @keyframes marquee { from{transform:translateX(0)}to{transform:translateX(-50%)} }
+
+    /* SERVICE CARDS */
+    .service-card { background:var(--gunmetal); border:1px solid rgba(255,255,255,0.06); border-bottom:3px solid transparent; transition:all .35s ease; position:relative; overflow:hidden; }
+    .service-card::before { content:''; position:absolute; inset:0; background:linear-gradient(135deg,rgba(232,16,16,0.05) 0%,transparent 60%); opacity:0; transition:opacity .35s; }
+    .service-card:hover { border-bottom-color:var(--sos); transform:translateY(-4px); box-shadow:0 20px 40px rgba(0,0,0,0.4),0 0 0 1px rgba(232,16,16,0.15); }
+    .service-card:hover::before { opacity:1; }
+    .service-icon { width:52px; height:52px; background:rgba(232,16,16,0.1); border:1px solid rgba(232,16,16,0.2); border-radius:4px; display:flex; align-items:center; justify-content:center; color:var(--sos); font-size:24px; flex-shrink:0; transition:background .3s; }
+    .service-card:hover .service-icon { background:rgba(232,16,16,0.2); }
+
+    /* WHY CARDS */
+    .why-card { position:relative; padding:28px 24px; background:var(--gunmetal); border:1px solid rgba(255,255,255,0.05); border-radius:2px; }
+    .why-number { font-family:'Barlow Condensed',sans-serif; font-size:72px; font-weight:900; line-height:1; color:rgba(232,16,16,0.12); position:absolute; top:12px; right:20px; }
+
+    /* PORTFOLIO */
+    .portfolio-item { position:relative; overflow:hidden; background:var(--steel); cursor:pointer; }
+    .portfolio-item img { width:100%; height:100%; object-fit:cover; transition:transform .5s ease; filter:grayscale(10%) contrast(1.05); display:block; }
+    .portfolio-item:hover img { transform:scale(1.06); filter:grayscale(0%) contrast(1.1); }
+    .portfolio-overlay { position:absolute; inset:0; background:linear-gradient(to top,rgba(17,18,20,0.92) 0%,transparent 55%); opacity:0; transition:opacity .35s; display:flex; align-items:flex-end; padding:18px; }
+    .portfolio-item:hover .portfolio-overlay { opacity:1; }
+    .play-btn { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:52px; height:52px; background:rgba(232,16,16,0.9); border-radius:50%; display:flex; align-items:center; justify-content:center; opacity:0; transition:opacity .3s,transform .3s; }
+    .portfolio-item:hover .play-btn { opacity:1; transform:translate(-50%,-50%) scale(1.1); }
+
+    /* FILTER TABS */
+    .filter-btn { font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:13px; letter-spacing:2px; text-transform:uppercase; padding:10px 22px; border:1px solid rgba(255,255,255,0.12); background:transparent; color:#9AA0AC; cursor:pointer; border-radius:2px; transition:all .2s; }
+    .filter-btn.active, .filter-btn:hover { border-color:var(--sos); color:white; background:rgba(232,16,16,0.08); }
+
+    /* LIGHTBOX */
+    #lightbox { position:fixed; inset:0; background:rgba(0,0,0,0.96); z-index:9999; display:none; align-items:center; justify-content:center; padding:20px; backdrop-filter:blur(6px); }
+    #lightbox.open { display:flex; }
+    #lightbox-content { position:relative; max-width:900px; width:100%; max-height:90vh; }
+    #lightbox-img { max-width:100%; max-height:85vh; object-fit:contain; border:1px solid rgba(255,255,255,0.1); display:block; margin:0 auto; }
+    #lightbox-video { width:100%; max-height:85vh; border:1px solid rgba(255,255,255,0.1); display:block; }
+    #lightbox-close { position:absolute; top:-40px; right:0; background:none; border:none; color:white; font-size:28px; cursor:pointer; opacity:.7; transition:opacity .2s; font-family:'Barlow Condensed',sans-serif; }
+    #lightbox-close:hover { opacity:1; }
+    #lightbox-caption { text-align:center; margin-top:12px; font-family:'Barlow Condensed',sans-serif; font-weight:600; font-size:14px; letter-spacing:2px; text-transform:uppercase; color:#9AA0AC; }
+    #lightbox-nav-prev, #lightbox-nav-next { position:absolute; top:50%; transform:translateY(-50%); background:rgba(232,16,16,0.8); border:none; color:white; width:44px; height:44px; border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background .2s; z-index:10; }
+    #lightbox-nav-prev { left:-60px; }
+    #lightbox-nav-next { right:-60px; }
+    #lightbox-nav-prev:hover, #lightbox-nav-next:hover { background:var(--sos); }
+    @media(max-width:768px) { #lightbox-nav-prev{left:-10px}#lightbox-nav-next{right:-10px} }
+
+    /* ZONE PILLS */
+    .zone-pill { display:inline-flex; align-items:center; gap:6px; padding:8px 18px; border:1px solid rgba(232,16,16,0.25); background:rgba(232,16,16,0.05); font-family:'Barlow Condensed',sans-serif; font-weight:600; font-size:15px; letter-spacing:1px; color:#ccc; border-radius:2px; text-transform:uppercase; transition:all .2s; }
+    .zone-pill:hover { border-color:var(--sos); color:white; background:rgba(232,16,16,0.12); }
+
+    /* BUTTONS */
+    .btn-sos { display:inline-flex; align-items:center; gap:10px; background:var(--sos); color:white; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:16px; letter-spacing:2px; text-transform:uppercase; padding:14px 32px; border:2px solid var(--sos); cursor:pointer; transition:all .25s; text-decoration:none; border-radius:2px; }
+    .btn-sos:hover { background:var(--sosdark); border-color:var(--sosdark); transform:translateY(-2px); box-shadow:0 8px 24px rgba(232,16,16,0.35); }
+    .btn-ghost { display:inline-flex; align-items:center; gap:10px; background:transparent; color:white; font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:16px; letter-spacing:2px; text-transform:uppercase; padding:14px 32px; border:2px solid rgba(255,255,255,0.25); cursor:pointer; transition:all .25s; text-decoration:none; border-radius:2px; }
+    .btn-ghost:hover { border-color:white; background:rgba(255,255,255,0.06); }
+
+    /* FORM */
+    .form-input { width:100%; background:var(--steel); border:1px solid rgba(255,255,255,0.1); color:white; padding:14px 16px; font-family:'Barlow',sans-serif; font-size:15px; border-radius:2px; outline:none; transition:border-color .2s; }
+    .form-input:focus { border-color:var(--sos); }
+    .form-input::placeholder { color:#666; }
+    .form-label { display:block; font-family:'Barlow Condensed',sans-serif; font-weight:600; font-size:13px; letter-spacing:2px; text-transform:uppercase; color:#9AA0AC; margin-bottom:8px; }
+
+    /* CERT BADGE */
+    .cert-badge { background:var(--gunmetal); border:1px solid rgba(255,255,255,0.07); padding:12px 20px; display:flex; align-items:center; gap:12px; border-radius:2px; }
+
+    /* WHATSAPP FLOAT */
+    .wa-float { position:fixed; bottom:28px; right:28px; z-index:998; width:60px; height:60px; background:#25D366; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 20px rgba(37,211,102,0.4); animation:waBounce 3s ease-in-out infinite; text-decoration:none; transition:transform .2s; }
+    .wa-float:hover { transform:scale(1.12); animation:none; }
+    @keyframes waBounce { 0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)} }
+
+    /* ANIMATIONS */
+    .fade-up { opacity:0; transform:translateY(30px); transition:opacity .6s ease,transform .6s ease; }
+    .fade-up.visible { opacity:1; transform:translateY(0); }
+
+    .sos-divider { display:flex; align-items:center; gap:16px; }
+    .sos-divider::before,.sos-divider::after { content:''; flex:1; height:1px; background:linear-gradient(to right,transparent,rgba(232,16,16,0.3),transparent); }
+
+    #mobile-menu { display:none; }
+    #mobile-menu.open { display:flex; }
+
+    /* GALLERY GRID */
+    .gallery-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:8px; }
+    .gallery-item { aspect-ratio:3/4; }
+    .gallery-item.landscape { aspect-ratio:4/3; }
+
+    /* HIDDEN FILTER */
+    .portfolio-item.hidden { display:none; }
+
+    @media(max-width:768px) {
+      .hero-title { font-size:clamp(52px,14vw,96px)!important; }
+      #lightbox-nav-prev, #lightbox-nav-next { width:36px; height:36px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/56923607215?text=Hola%2C%20necesito%20un%20servicio%20de%20emergencia" class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg width="30" height="30" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" onclick="closeLightboxBg(event)">
+  <div id="lightbox-content">
+    <button id="lightbox-close" onclick="closeLightbox()">✕ CERRAR</button>
+    <button id="lightbox-nav-prev" onclick="navLightbox(-1)">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <button id="lightbox-nav-next" onclick="navLightbox(1)">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+    <img id="lightbox-img" src="" alt="" />
+    <video id="lightbox-video" controls style="display:none;" playsinline></video>
+    <div id="lightbox-caption"></div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 py-4" style="background:transparent;">
+  <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+    <a href="#hero" class="flex items-center gap-3" style="text-decoration:none;">
+      <img src="assets/logo.svg" alt="SOS Hogar 24/7" style="height:44px;width:auto;" />
+    </a>
+    <div class="hidden md:flex items-center gap-8">
+      <a href="#servicios" style="font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:14px;letter-spacing:2px;text-transform:uppercase;color:#9AA0AC;text-decoration:none;" onmouseover="this.style.color='white'" onmouseout="this.style.color='#9AA0AC'">Servicios</a>
+      <a href="#porque" style="font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:14px;letter-spacing:2px;text-transform:uppercase;color:#9AA0AC;text-decoration:none;" onmouseover="this.style.color='white'" onmouseout="this.style.color='#9AA0AC'">Nosotros</a>
+      <a href="#portafolio" style="font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:14px;letter-spacing:2px;text-transform:uppercase;color:#9AA0AC;text-decoration:none;" onmouseover="this.style.color='white'" onmouseout="this.style.color='#9AA0AC'">Proyectos</a>
+      <a href="#contacto" style="font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:14px;letter-spacing:2px;text-transform:uppercase;color:#9AA0AC;text-decoration:none;" onmouseover="this.style.color='white'" onmouseout="this.style.color='#9AA0AC'">Contacto</a>
+      <a href="tel:+56923607215" class="btn-sos" style="padding:10px 22px;font-size:13px;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        Llamar Ahora
+      </a>
+    </div>
+    <button class="md:hidden text-white" onclick="toggleMenu()">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+  <div id="mobile-menu" class="md:hidden flex-col px-6 pt-4 pb-6 gap-4 border-t border-white border-opacity-10 mt-4" style="background:rgba(17,18,20,0.98);">
+    <a href="#servicios" onclick="toggleMenu()" style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:18px;letter-spacing:2px;text-transform:uppercase;color:white;text-decoration:none;padding:8px 0;display:block;">Servicios</a>
+    <a href="#porque" onclick="toggleMenu()" style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:18px;letter-spacing:2px;text-transform:uppercase;color:white;text-decoration:none;padding:8px 0;display:block;">Nosotros</a>
+    <a href="#portafolio" onclick="toggleMenu()" style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:18px;letter-spacing:2px;text-transform:uppercase;color:white;text-decoration:none;padding:8px 0;display:block;">Proyectos</a>
+    <a href="#contacto" onclick="toggleMenu()" style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:18px;letter-spacing:2px;text-transform:uppercase;color:white;text-decoration:none;padding:8px 0;display:block;">Contacto</a>
+    <a href="tel:+56923607215" class="btn-sos" style="margin-top:8px;">📞 +56 9 2360 7215</a>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section id="hero" class="hero-bg relative min-h-screen flex flex-col justify-center overflow-hidden pt-20">
+  <div class="hero-grid absolute inset-0 opacity-40"></div>
+  <div class="absolute right-0 top-0 bottom-0 w-1/3 opacity-5" style="background:linear-gradient(to bottom left,#E81010,transparent);"></div>
+  <div class="absolute right-16 top-1/4 w-px h-64 bg-sos opacity-20"></div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-6 py-20">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <div class="sos-badge mb-8">
+          <span style="width:8px;height:8px;background:#E81010;border-radius:50%;display:inline-block;animation:pulseGlow 1s ease-in-out infinite;"></span>
+          Disponible Ahora — 24/7
+        </div>
+        <h1 class="hero-title mb-6" style="font-size:clamp(56px,8vw,108px);">
+          <span class="outline">Tu</span><br>
+          <span class="accent">Emergencia</span><br>
+          <span style="color:white;">Resuelta.</span>
+        </h1>
+        <p style="font-size:18px;color:#9AA0AC;line-height:1.7;max-width:480px;" class="mb-8">
+          Electricidad, gasfitería y construcción integral. Técnico <strong style="color:white;">certificado SENCE</strong> con más de 28 años de experiencia. <strong style="color:white;">Respuesta inmediata</strong> las 24 horas, los 365 días del año.
+        </p>
+        <div class="flex flex-wrap gap-4 mb-12">
+          <a href="#contacto" class="btn-sos">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            Cotizar Proyecto
+          </a>
+          <a href="tel:+56923607215" class="btn-ghost">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            Llamar Ahora
+          </a>
+        </div>
+        <div class="flex flex-wrap gap-8">
+          <div class="hero-stat">
+            <div style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:42px;color:white;line-height:1;">28+</div>
+            <div style="font-size:12px;color:#9AA0AC;letter-spacing:2px;text-transform:uppercase;">Años de Experiencia</div>
+          </div>
+          <div class="hero-stat">
+            <div style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:42px;color:white;line-height:1;">24/7</div>
+            <div style="font-size:12px;color:#9AA0AC;letter-spacing:2px;text-transform:uppercase;">Disponibilidad</div>
+          </div>
+          <div class="hero-stat">
+            <div style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:42px;color:white;line-height:1;">6</div>
+            <div style="font-size:12px;color:#9AA0AC;letter-spacing:2px;text-transform:uppercase;">Comunas Cubiertas</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Emergency card -->
+      <div class="lg:pl-8">
+        <div style="background:var(--gunmetal);border:1px solid rgba(232,16,16,0.2);border-radius:4px;overflow:hidden;box-shadow:0 40px 80px rgba(0,0,0,0.5);">
+          <div style="background:var(--sos);padding:16px 24px;display:flex;align-items:center;gap:12px;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            <span style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:16px;letter-spacing:2px;color:white;text-transform:uppercase;">Servicio de Emergencia 24/7</span>
+          </div>
+          <div style="padding:28px 24px;">
+            <div style="display:flex;flex-direction:column;gap:14px;margin-bottom:28px;">
+              <div style="display:flex;align-items:center;gap:14px;padding:14px;background:rgba(255,255,255,0.03);border-radius:3px;border-left:3px solid var(--sos);">
+                <span style="font-size:22px;">⚡</span>
+                <div><div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:16px;color:white;">Falla Eléctrica</div><div style="font-size:12px;color:#666;">Corto circuito · Sin luz · Tablero</div></div>
+                <div style="margin-left:auto;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:12px;color:#E81010;background:rgba(232,16,16,0.1);padding:4px 10px;border-radius:2px;">URGENTE</div>
+              </div>
+              <div style="display:flex;align-items:center;gap:14px;padding:14px;background:rgba(255,255,255,0.03);border-radius:3px;border-left:3px solid var(--sos);">
+                <span style="font-size:22px;">🔧</span>
+                <div><div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:16px;color:white;">Fuga de Gas / Cañería</div><div style="font-size:12px;color:#666;">Rotura · Fuga · Sin agua caliente</div></div>
+                <div style="margin-left:auto;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:12px;color:#E81010;background:rgba(232,16,16,0.1);padding:4px 10px;border-radius:2px;">URGENTE</div>
+              </div>
+              <div style="display:flex;align-items:center;gap:14px;padding:14px;background:rgba(255,255,255,0.03);border-radius:3px;border-left:3px solid rgba(255,255,255,0.1);">
+                <span style="font-size:22px;">🏗️</span>
+                <div><div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:16px;color:white;">Construcción y Remodelación</div><div style="font-size:12px;color:#666;">Techumbre · Carpintería · Terminaciones</div></div>
+                <div style="margin-left:auto;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:12px;color:#9AA0AC;background:rgba(255,255,255,0.05);padding:4px 10px;border-radius:2px;">PROYECTO</div>
+              </div>
+            </div>
+            <a href="https://wa.me/56923607215?text=Hola%2C%20tengo%20una%20emergencia%20y%20necesito%20ayuda" target="_blank" class="btn-sos" style="width:100%;justify-content:center;font-size:15px;padding:16px;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Enviar Emergencia por WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-40">
+    <span style="font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#9AA0AC;">Scroll</span>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9AA0AC" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div style="background:var(--sos);overflow:hidden;padding:14px 0;border-top:1px solid rgba(255,255,255,0.1);border-bottom:1px solid rgba(255,255,255,0.1);">
+  <div class="marquee-track" id="marquee-track">
+    <span style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:15px;letter-spacing:3px;text-transform:uppercase;color:white;padding:0 28px;">⚡ Emergencias Eléctricas</span>
+    <span style="color:rgba(255,255,255,0.4);font-size:12px;">◆</span>
+    <span style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:15px;letter-spacing:3px;text-transform:uppercase;color:white;padding:0 28px;">🔧 Gasfitería Urgente</span>
+    <span style="color:rgba(255,255,255,0.4);font-size:12px;">◆</span>
+    <span style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:15px;letter-spacing:3px;text-transform:uppercase;color:white;padding:0 28px;">🏠 Techumbre y Cubiertas</span>
+    <span style="color:rgba(255,255,255,0.4);font-size:12px;">◆</span>
+    <span style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:15px;letter-spacing:3px;text-transform:uppercase;color:white;padding:0 28px;">🪚 Carpintería y Puertas</span>
+    <span style="color:rgba(255,255,255,0.4);font-size:12px;">◆</span>
+    <span style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:15px;letter-spacing:3px;text-transform:uppercase;color:white;padding:0 28px;">🔩 Estructuras Metálicas</span>
+    <span style="color:rgba(255,255,255,0.4);font-size:12px;">◆</span>
+    <span style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:15px;letter-spacing:3px;text-transform:uppercase;color:white;padding:0 28px;">🎨 Pintura Industrial</span>
+    <span style="color:rgba(255,255,255,0.4);font-size:12px;">◆</span>
+    <span style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:15px;letter-spacing:3px;text-transform:uppercase;color:white;padding:0 28px;">🏗️ Revestimientos</span>
+    <span style="color:rgba(255,255,255,0.4);font-size:12px;">◆</span>
+  </div>
+</div>
+
+<!-- ═══ SERVICIOS ═══ -->
+<section id="servicios" class="py-24 relative" style="background:var(--gunmetal);">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16 fade-up">
+      <div class="sos-divider mb-6"><span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:12px;letter-spacing:4px;text-transform:uppercase;color:var(--sos);">Lo Que Hacemos</span></div>
+      <h2 style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(36px,6vw,64px);text-transform:uppercase;color:white;line-height:1.05;">Servicios <span style="color:var(--sos);">Integrales</span></h2>
+      <p style="color:#9AA0AC;font-size:17px;max-width:520px;margin:16px auto 0;line-height:1.7;">Un solo técnico certificado para todo lo que tu hogar o empresa necesite.</p>
+    </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div class="service-card p-7 fade-up" style="transition-delay:.05s">
+        <div class="flex items-start gap-5 mb-5"><div class="service-icon">⚡</div><div><h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:22px;color:white;text-transform:uppercase;">Electricidad</h3><span style="font-size:11px;color:var(--sos);letter-spacing:2px;text-transform:uppercase;font-family:'Barlow Condensed',sans-serif;font-weight:700;">Certificado SENCE</span></div></div>
+        <p style="color:#9AA0AC;font-size:14px;line-height:1.7;margin-bottom:14px;">Tableros eléctricos, cortos circuitos, instalaciones domiciliarias e industriales cumpliendo norma técnica vigente.</p>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:7px;"><li style="display:flex;align-items:center;gap:8px;font-size:13px;color:#ccc;"><span style="color:var(--sos);">→</span>Corto circuito y fallas de tablero</li><li style="display:flex;align-items:center;gap:8px;font-size:13px;color:#ccc;"><span style="color:var(--sos);">→</span>Instalación de enchufes y puntos de luz</li><li style="display:flex;align-items:center;gap:8px;font-size:13px;color:#ccc;"><span style="color:var(--sos);">→</span>Montaje eléctrico industrial</li></ul>
+      </div>
+      <div class="service-card p-7 fade-up" style="transition-delay:.1s">
+        <div class="flex items-start gap-5 mb-5"><div class="service-icon">🔧</div><div><h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:22px;color:white;text-transform:uppercase;">Gasfitería</h3><span style="font-size:11px;color:var(--sos);letter-spacing:2px;text-transform:uppercase;font-family:'Barlow Condensed',sans-serif;font-weight:700;">Urgencias 24/7</span></div></div>
+        <p style="color:#9AA0AC;font-size:14px;line-height:1.7;margin-bottom:14px;">Detección y reparación de fugas, cañerías, calefones y sistemas de agua caliente. Respuesta inmediata.</p>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:7px;"><li style="display:flex;align-items:center;gap:8px;font-size:13px;color:#ccc;"><span style="color:var(--sos);">→</span>Fugas de gas con detector certificado</li><li style="display:flex;align-items:center;gap:8px;font-size:13px;color:#ccc;"><span style="color:var(--sos);">→</span>Rotura y obstrucción de cañerías</li><li style="display:flex;align-items:center;gap:8px;font-size:13px;color:#ccc;"><span style="color:var(--sos);">→</span>Instalación y reparación de calefones</li></ul>
+      </div>
+      <div class="service-card p-7 fade-up" style="transition-delay:.15s">
+        <div class="flex items-start gap-5 mb-5"><div class="service-icon">🏠</div><div><h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:22px;color:white;text-transform:uppercase;">Techumbre</h3><span style="font-size:11px;color:#9AA0AC;letter-spacing:2px;text-transform:uppercase;font-family:'Barlow Condensed',sans-serif;font-weight:700;">Nueva · Reparación</span></div></div>
+        <p style="color:#9AA0AC;font-size:14px;line-height:1.7;margin-bottom:14px;">Construcción y reparación de techumbres. Estructura de cerchas, cubierta de shingles, zinc y sellado definitivo.</p>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:7px;"><li style="display:flex;align-items:center;gap:8px;font-size:13px;color:#ccc;"><span style="color:var(--sos);">→</span>Estructura de madera y cerchas</li><li style="display:flex;align-items:center;gap:8px;font-size:13px;color:#ccc;"><span style="color:var(--sos);">→</span>Cubiertas shingles, zinc y planchas</li><li style="display:flex;align-items:center;gap:8px;font-size:13px;color:#ccc;"><span style="color:var(--sos);">→</span>Reparación de filtraciones</li></ul>
+      </div>
+      <div class="service-card p-7 fade-up" style="transition-delay:.2s">
+        <div class="flex items-start gap-5 mb-5"><div class="service-icon">🪚</div><div><h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:22px;color:white;text-transform:uppercase;">Carpintería</h3><span style="font-size:11px;color:#9AA0AC;letter-spacing:2px;text-transform:uppercase;font-family:'Barlow Condensed',sans-serif;font-weight:700;">Puertas · Mueblería</span></div></div>
+        <p style="color:#9AA0AC;font-size:14px;line-height:1.7;margin-bottom:14px;">Puertas a medida, mueblería modular, cerramientos y carpintería gruesa de obra con acabado profesional.</p>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:7px;"><li style="display:flex;align-items:center;gap:8px;font-size:13px;color:#ccc;"><span style="color:var(--sos);">→</span>Puertas correderas y batientes a medida</li><li style="display:flex;align-items:center;gap:8px;font-size:13px;color:#ccc;"><span style="color:var(--sos);">→</span>Marcos, dinteles y cerramientos</li><li style="display:flex;align-items:center;gap:8px;font-size:13px;color:#ccc;"><span style="color:var(--sos);">→</span>Mueblería modular y ebanistería</li></ul>
+      </div>
+      <div class="service-card p-7 fade-up" style="transition-delay:.25s">
+        <div class="flex items-start gap-5 mb-5"><div class="service-icon">🎨</div><div><h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:22px;color:white;text-transform:uppercase;">Terminaciones</h3><span style="font-size:11px;color:#9AA0AC;letter-spacing:2px;text-transform:uppercase;font-family:'Barlow Condensed',sans-serif;font-weight:700;">Pintura · Cerámica</span></div></div>
+        <p style="color:#9AA0AC;font-size:14px;line-height:1.7;margin-bottom:14px;">Pintura domiciliaria e industrial, revestimientos cerámicos, porcelanatos y terminaciones finas de alto estándar.</p>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:7px;"><li style="display:flex;align-items:center;gap:8px;font-size:13px;color:#ccc;"><span style="color:var(--sos);">→</span>Pintura interior y exterior</li><li style="display:flex;align-items:center;gap:8px;font-size:13px;color:#ccc;"><span style="color:var(--sos);">→</span>Cerámica y porcelanato</li><li style="display:flex;align-items:center;gap:8px;font-size:13px;color:#ccc;"><span style="color:var(--sos);">→</span>Estuco, masillado y raspado</li></ul>
+      </div>
+      <div class="service-card p-7 fade-up" style="transition-delay:.3s">
+        <div class="flex items-start gap-5 mb-5"><div class="service-icon">🔩</div><div><h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:22px;color:white;text-transform:uppercase;">Estructuras Metálicas</h3><span style="font-size:11px;color:#9AA0AC;letter-spacing:2px;text-transform:uppercase;font-family:'Barlow Condensed',sans-serif;font-weight:700;">Industrial · Residencial</span></div></div>
+        <p style="color:#9AA0AC;font-size:14px;line-height:1.7;margin-bottom:14px;">Fabricación y montaje de estructuras metálicas. Soldadura inverter, rejas, escaleras y protecciones a medida.</p>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:7px;"><li style="display:flex;align-items:center;gap:8px;font-size:13px;color:#ccc;"><span style="color:var(--sos);">→</span>Soldadura y confección de piezas</li><li style="display:flex;align-items:center;gap:8px;font-size:13px;color:#ccc;"><span style="color:var(--sos);">→</span>Rejas, portones y protecciones</li><li style="display:flex;align-items:center;gap:8px;font-size:13px;color:#ccc;"><span style="color:var(--sos);">→</span>Estructuras a medida</li></ul>
+      </div>
+    </div>
+    <div class="mt-14 flex flex-col sm:flex-row items-center justify-between gap-6 p-8 fade-up" style="background:rgba(232,16,16,0.06);border:1px solid rgba(232,16,16,0.2);border-radius:3px;">
+      <div>
+        <div style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:26px;color:white;text-transform:uppercase;">¿No sabes qué servicio necesitas?</div>
+        <div style="font-size:15px;color:#9AA0AC;margin-top:4px;">Cuéntame el problema y te oriento sin costo.</div>
+      </div>
+      <a href="https://wa.me/56923607215?text=Hola%20Cristian%2C%20tengo%20un%20problema%20y%20necesito%20orientaci%C3%B3n" target="_blank" class="btn-sos" style="white-space:nowrap;">Consultar Gratis <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ POR QUÉ NOSOTROS ═══ -->
+<section id="porque" class="py-24" style="background:var(--carbon);">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+      <div class="fade-up">
+        <div class="sos-badge mb-6">Nuestra Diferencia</div>
+        <h2 style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(36px,5vw,60px);text-transform:uppercase;color:white;line-height:1.05;margin-bottom:20px;">¿Por Qué<br><span style="color:var(--sos);">SOS Hogar 24/7?</span></h2>
+        <p style="color:#9AA0AC;font-size:16px;line-height:1.8;margin-bottom:28px;">El mercado está lleno de maestros sin respaldo. Con más de <strong style="color:white;">994 horas de formación técnica certificada</strong> por SENCE, Santo Tomás y ACHS, cada trabajo que realizo tiene el rigor de quien se formó para hacerlo bien — no solo de quien lo aprendió en la práctica.</p>
+
+        <!-- Técnico foto perfil -->
+        <div style="position:relative;margin-bottom:24px;overflow:hidden;border-radius:3px;border:1px solid rgba(232,16,16,0.2);display:flex;gap:0;">
+          <div style="width:140px;flex-shrink:0;overflow:hidden;">
+            <img src="assets/imgs/cristian_perfil.jpg" alt="Cristian Venega Gómez técnico certificado Los Andes" style="width:100%;height:200px;object-fit:cover;object-position:center 20%;filter:contrast(1.08) brightness(0.95);" />
+          </div>
+          <div style="flex:1;background:linear-gradient(135deg,#1C1E22,#111214);padding:20px;display:flex;flex-direction:column;justify-content:center;">
+            <div style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:20px;color:white;text-transform:uppercase;line-height:1.1;margin-bottom:6px;">Cristian Venega<br><span style="color:#E81010;">Gómez</span></div>
+            <div style="font-size:11px;color:#9AA0AC;letter-spacing:2px;text-transform:uppercase;font-family:'Barlow Condensed',sans-serif;margin-bottom:12px;">Técnico M1 · Los Andes</div>
+            <div style="font-size:13px;color:#ccc;line-height:1.6;">28 años de experiencia en construcción, electricidad, gasfitería y mantención. Más de <strong style="color:white;">994 horas</strong> de formación técnica certificada.</div>
+          </div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div class="cert-badge"><div style="width:40px;height:40px;background:rgba(232,16,16,0.1);border:1px solid rgba(232,16,16,0.2);border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">⚡</div><div><div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:15px;color:white;">Montaje Eléctrico Industrial</div><div style="font-size:12px;color:#9AA0AC;">SENCE · 374 horas · Folio N° 2740243 · 2014</div></div></div>
+          <div class="cert-badge"><div style="width:40px;height:40px;background:rgba(232,16,16,0.1);border:1px solid rgba(232,16,16,0.2);border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">🔧</div><div><div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:15px;color:white;">Técnicas de Gasfitería</div><div style="font-size:12px;color:#9AA0AC;">SENCE · 320 horas · 100% asistencia · Folio N° 2740242 · 2021</div></div></div>
+          <div class="cert-badge"><div style="width:40px;height:40px;background:rgba(232,16,16,0.1);border:1px solid rgba(232,16,16,0.2);border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">🏭</div><div><div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:15px;color:white;">Mantención Mecánica de Equipos de Planta</div><div style="font-size:12px;color:#9AA0AC;">Santo Tomás / SENCE · 300 horas · Nota 6.7 · 100% asistencia · 2025</div></div></div>
+          <div class="cert-badge"><div style="width:40px;height:40px;background:rgba(232,16,16,0.1);border:1px solid rgba(232,16,16,0.2);border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">🛡️</div><div><div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:15px;color:white;">EPP DS44 + Formación para Personas Trabajadoras</div><div style="font-size:12px;color:#9AA0AC;">ACHS Seguro Laboral · Nota 7.0 · 2025</div></div></div>
+        </div>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-5 fade-up" style="transition-delay:.1s">
+        <div class="why-card"><div class="why-number">01</div><div style="font-size:28px;margin-bottom:12px;">⚡</div><h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:20px;color:white;text-transform:uppercase;margin-bottom:8px;">Respuesta Inmediata</h3><p style="color:#9AA0AC;font-size:14px;line-height:1.7;">Atendemos emergencias de noche, fines de semana y festivos. Cuando nadie más puede, nosotros llegamos.</p></div>
+        <div class="why-card"><div class="why-number">02</div><div style="font-size:28px;margin-bottom:12px;">🎓</div><h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:20px;color:white;text-transform:uppercase;margin-bottom:8px;">Técnico Certificado</h3><p style="color:#9AA0AC;font-size:14px;line-height:1.7;">No somos un oficio empírico. Cada intervención cumple las normativas técnicas y de seguridad laboral vigentes.</p></div>
+        <div class="why-card"><div class="why-number">03</div><div style="font-size:28px;margin-bottom:12px;">🔑</div><h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:20px;color:white;text-transform:uppercase;margin-bottom:8px;">Todo en Una Gestión</h3><p style="color:#9AA0AC;font-size:14px;line-height:1.7;">De la falla técnica a las terminaciones finas. Un solo contacto resuelve todo, sin coordinar múltiples maestros.</p></div>
+        <div class="why-card"><div class="why-number">04</div><div style="font-size:28px;margin-bottom:12px;">✅</div><h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:20px;color:white;text-transform:uppercase;margin-bottom:8px;">Garantía Técnica</h3><p style="color:#9AA0AC;font-size:14px;line-height:1.7;">Seguimiento post-servicio con informe de recomendaciones. Tu tranquilidad no termina cuando nos vamos.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PORTAFOLIO CON FOTOS REALES ═══ -->
+<section id="portafolio" class="py-24" style="background:var(--gunmetal);">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-12 fade-up">
+      <div class="sos-divider mb-6"><span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:12px;letter-spacing:4px;text-transform:uppercase;color:var(--sos);">Trabajos Realizados</span></div>
+      <h2 style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(36px,6vw,64px);text-transform:uppercase;color:white;line-height:1.05;">Nuestros <span style="color:var(--sos);">Proyectos</span></h2>
+      <p style="color:#9AA0AC;font-size:16px;max-width:480px;margin:14px auto 0;line-height:1.7;">Resultados reales de nuestros proyectos en Los Andes y alrededores.</p>
+    </div>
+
+    <!-- Filter tabs -->
+    <div class="flex flex-wrap gap-3 justify-center mb-10 fade-up" style="transition-delay:.05s">
+      <button class="filter-btn active" onclick="filterPortfolio('all', this)">Todos</button>
+      <button class="filter-btn" onclick="filterPortfolio('carpinteria', this)">🪚 Carpintería</button>
+      <button class="filter-btn" onclick="filterPortfolio('techumbre', this)">🏠 Techumbre</button>
+      <button class="filter-btn" onclick="filterPortfolio('terminaciones', this)">🎨 Terminaciones</button>
+      <button class="filter-btn" onclick="filterPortfolio('construccion', this)">🏗️ Construcción</button>
+      <button class="filter-btn" onclick="filterPortfolio('video', this)">▶ Videos de Obra</button>
+    </div>
+
+    <!-- Gallery -->
+    <div id="portfolio-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 fade-up" style="transition-delay:.1s">
+
+      <!-- CARPINTERÍA: Puerta corredera -->
+      <div class="portfolio-item gallery-item" data-cat="carpinteria" data-type="img" data-src="assets/imgs/20250831_162711.jpg" data-caption="Carpintería — Puerta corredera a medida" onclick="openLightbox(this)">
+        <img src="assets/imgs/20250831_162711.jpg" alt="Puerta corredera madera carpintería Los Andes" loading="lazy" />
+        <div class="portfolio-overlay"><div><div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:15px;color:white;">Puerta Corredera</div><div style="font-size:11px;color:#ccc;">Carpintería a medida</div></div></div>
+      </div>
+
+      <div class="portfolio-item gallery-item" data-cat="carpinteria" data-type="img" data-src="assets/imgs/20250831_162722.jpg" data-caption="Carpintería — Detalle bisagras y marcos" onclick="openLightbox(this)">
+        <img src="assets/imgs/20250831_162722.jpg" alt="Detalle bisagras puerta madera carpintería" loading="lazy" />
+        <div class="portfolio-overlay"><div><div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:15px;color:white;">Detalle Bisagras</div><div style="font-size:11px;color:#ccc;">Carpintería fina</div></div></div>
+      </div>
+
+      <div class="portfolio-item gallery-item" data-cat="carpinteria" data-type="img" data-src="assets/imgs/20250831_162722__1_.jpg" data-caption="Carpintería — Vista puerta lateral" onclick="openLightbox(this)">
+        <img src="assets/imgs/20250831_162722__1_.jpg" alt="Puerta madera lateral carpintería Los Andes" loading="lazy" />
+        <div class="portfolio-overlay"><div><div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:15px;color:white;">Puerta Batiente</div><div style="font-size:11px;color:#ccc;">Carpintería a medida</div></div></div>
+      </div>
+
+      <div class="portfolio-item gallery-item" data-cat="carpinteria" data-type="img" data-src="assets/imgs/20250831_162734.jpg" data-caption="Carpintería — Marco y terminación" onclick="openLightbox(this)">
+        <img src="assets/imgs/20250831_162734.jpg" alt="Marco puerta carpintería Los Andes" loading="lazy" />
+        <div class="portfolio-overlay"><div><div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:15px;color:white;">Marco y Terminación</div><div style="font-size:11px;color:#ccc;">Carpintería</div></div></div>
+      </div>
+
+      <div class="portfolio-item gallery-item" data-cat="carpinteria" data-type="img" data-src="assets/imgs/20250901_145826.jpg" data-caption="Carpintería — Marco de puerta terminado" onclick="openLightbox(this)">
+        <img src="assets/imgs/20250901_145826.jpg" alt="Marco puerta instalado terminación Los Andes" loading="lazy" />
+        <div class="portfolio-overlay"><div><div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:15px;color:white;">Marco Instalado</div><div style="font-size:11px;color:#ccc;">Terminación carpintería</div></div></div>
+      </div>
+
+      <div class="portfolio-item gallery-item" data-cat="carpinteria" data-type="img" data-src="assets/imgs/20250901_145835.jpg" data-caption="Carpintería — Terminación fina" onclick="openLightbox(this)">
+        <img src="assets/imgs/20250901_145835.jpg" alt="Terminación carpintería fina" loading="lazy" />
+        <div class="portfolio-overlay"><div><div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:15px;color:white;">Terminación Fina</div><div style="font-size:11px;color:#ccc;">Carpintería</div></div></div>
+      </div>
+
+      <div class="portfolio-item gallery-item" data-cat="carpinteria" data-type="img" data-src="assets/imgs/20250901_145844.jpg" data-caption="Carpintería — Detalle de terminación" onclick="openLightbox(this)">
+        <img src="assets/imgs/20250901_145844.jpg" alt="Detalle terminación carpintería" loading="lazy" />
+        <div class="portfolio-overlay"><div><div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:15px;color:white;">Detalle Terminación</div><div style="font-size:11px;color:#ccc;">Carpintería</div></div></div>
+      </div>
+
+      <div class="portfolio-item gallery-item" data-cat="carpinteria" data-type="img" data-src="assets/imgs/20250901_145855.jpg" data-caption="Carpintería — Estructura y marco" onclick="openLightbox(this)">
+        <img src="assets/imgs/20250901_145855.jpg" alt="Estructura y marco madera carpintería" loading="lazy" />
+        <div class="portfolio-overlay"><div><div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:15px;color:white;">Estructura Marco</div><div style="font-size:11px;color:#ccc;">Carpintería</div></div></div>
+      </div>
+
+      <div class="portfolio-item gallery-item" data-cat="carpinteria" data-type="img" data-src="assets/imgs/20250901_145914.jpg" data-caption="Carpintería — Terminación final" onclick="openLightbox(this)">
+        <img src="assets/imgs/20250901_145914.jpg" alt="Terminación final carpintería" loading="lazy" />
+        <div class="portfolio-overlay"><div><div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:15px;color:white;">Terminación Final</div><div style="font-size:11px;color:#ccc;">Carpintería</div></div></div>
+      </div>
+
+      <div class="portfolio-item gallery-item" data-cat="carpinteria" data-type="img" data-src="assets/imgs/20250901_145937.jpg" data-caption="Carpintería — Detalle puerta" onclick="openLightbox(this)">
+        <img src="assets/imgs/20250901_145937.jpg" alt="Detalle puerta carpintería Los Andes" loading="lazy" />
+        <div class="portfolio-overlay"><div><div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:15px;color:white;">Detalle Puerta</div><div style="font-size:11px;color:#ccc;">Carpintería</div></div></div>
+      </div>
+
+      <div class="portfolio-item gallery-item" data-cat="carpinteria" data-type="img" data-src="assets/imgs/20250901_145950.jpg" data-caption="Carpintería — Terminación de marcos" onclick="openLightbox(this)">
+        <img src="assets/imgs/20250901_145950.jpg" alt="Terminación marcos carpintería" loading="lazy" />
+        <div class="portfolio-overlay"><div><div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:15px;color:white;">Terminación Marcos</div><div style="font-size:11px;color:#ccc;">Carpintería</div></div></div>
+      </div>
+
+      <!-- TECHUMBRE -->
+      <div class="portfolio-item gallery-item" data-cat="techumbre" data-type="img" data-src="assets/imgs/20260210_093150.jpg" data-caption="Techumbre — Estructura de cerchas desde arriba" onclick="openLightbox(this)">
+        <img src="assets/imgs/20260210_093150.jpg" alt="Estructura cerchas techumbre Los Andes" loading="lazy" />
+        <div class="portfolio-overlay"><div><div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:15px;color:white;">Estructura Cerchas</div><div style="font-size:11px;color:#ccc;">Techumbre</div></div></div>
+      </div>
+
+      <div class="portfolio-item gallery-item" data-cat="techumbre" data-type="img" data-src="assets/imgs/20260210_093154.jpg" data-caption="Techumbre — Cubierta en proceso" onclick="openLightbox(this)">
+        <img src="assets/imgs/20260210_093154.jpg" alt="Cubierta techumbre en proceso Los Andes" loading="lazy" />
+        <div class="portfolio-overlay"><div><div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:15px;color:white;">Cubierta en Proceso</div><div style="font-size:11px;color:#ccc;">Techumbre</div></div></div>
+      </div>
+
+      <div class="portfolio-item gallery-item" data-cat="techumbre" data-type="img" data-src="assets/imgs/20260210_093202.jpg" data-caption="Techumbre — Cerchas y cubierta nueva" onclick="openLightbox(this)">
+        <img src="assets/imgs/20260210_093202.jpg" alt="Cerchas y cubierta techumbre nueva" loading="lazy" />
+        <div class="portfolio-overlay"><div><div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:15px;color:white;">Cerchas y Cubierta</div><div style="font-size:11px;color:#ccc;">Techumbre nueva</div></div></div>
+      </div>
+
+      <div class="portfolio-item gallery-item" data-cat="techumbre" data-type="img" data-src="assets/imgs/20260210_093234.jpg" data-caption="Techumbre — Trabajo en altura" onclick="openLightbox(this)">
+        <img src="assets/imgs/20260210_093234.jpg" alt="Trabajo en altura techumbre Los Andes" loading="lazy" />
+        <div class="portfolio-overlay"><div><div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:15px;color:white;">Trabajo en Altura</div><div style="font-size:11px;color:#ccc;">EPP certificado ACHS</div></div></div>
+      </div>
+
+      <div class="portfolio-item gallery-item" data-cat="techumbre" data-type="img" data-src="assets/imgs/20260210_093327.jpg" data-caption="Techumbre — Detalle estructura" onclick="openLightbox(this)">
+        <img src="assets/imgs/20260210_093327.jpg" alt="Detalle estructura techumbre" loading="lazy" />
+        <div class="portfolio-overlay"><div><div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:15px;color:white;">Detalle Estructura</div><div style="font-size:11px;color:#ccc;">Techumbre</div></div></div>
+      </div>
+
+      <div class="portfolio-item gallery-item" data-cat="techumbre" data-type="img" data-src="assets/imgs/20260211_113441.jpg" data-caption="Techumbre — Techo terminado con shingles" onclick="openLightbox(this)">
+        <img src="assets/imgs/20260211_113441.jpg" alt="Techumbre terminada shingles Los Andes" loading="lazy" />
+        <div class="portfolio-overlay"><div><div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:15px;color:white;">Techo Terminado</div><div style="font-size:11px;color:#ccc;">Cubierta shingles</div></div></div>
+      </div>
+
+      <!-- TERMINACIONES / VIDEOS -->
+      <div class="portfolio-item gallery-item" data-cat="terminaciones" data-type="video" data-src="assets/videos/vid_ceramico.mp4" data-thumb="assets/imgs/vid_ceramico.jpg" data-caption="Terminaciones — Revestimiento cerámico / porcelanato" onclick="openLightbox(this)">
+        <img src="assets/imgs/vid_ceramico.jpg" alt="Revestimiento cerámico porcelanato terminaciones" loading="lazy" />
+        <div class="play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+        <div class="portfolio-overlay"><div><div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:15px;color:white;">▶ Cerámica y Porcelanato</div><div style="font-size:11px;color:#ccc;">Video de obra</div></div></div>
+      </div>
+
+      <div class="portfolio-item gallery-item" data-cat="terminaciones video" data-type="video" data-src="assets/videos/vid_pintura_ladrillo.mp4" data-thumb="assets/imgs/vid_pintura_ladrillo.jpg" data-caption="Pintura — Muro ladrillo terminado" onclick="openLightbox(this)">
+        <img src="assets/imgs/vid_pintura_ladrillo.jpg" alt="Pintura muro ladrillo terminaciones Los Andes" loading="lazy" />
+        <div class="play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+        <div class="portfolio-overlay"><div><div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:15px;color:white;">▶ Pintura Ladrillo</div><div style="font-size:11px;color:#ccc;">Video de obra</div></div></div>
+      </div>
+
+      <!-- CONSTRUCCIÓN / VIDEOS -->
+      <div class="portfolio-item gallery-item" data-cat="construccion video" data-type="video" data-src="assets/videos/vid_celosia.mp4" data-thumb="assets/imgs/vid_celosia.jpg" data-caption="Construcción — Celosía y estructura madera exterior" onclick="openLightbox(this)">
+        <img src="assets/imgs/vid_celosia.jpg" alt="Celosía madera construcción exterior Los Andes" loading="lazy" />
+        <div class="play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+        <div class="portfolio-overlay"><div><div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:15px;color:white;">▶ Celosía Exterior</div><div style="font-size:11px;color:#ccc;">Video de obra</div></div></div>
+      </div>
+
+      <div class="portfolio-item gallery-item" data-cat="construccion video" data-type="video" data-src="assets/videos/vid_construccion_ext.mp4" data-thumb="assets/imgs/vid_construccion_ext.jpg" data-caption="Construcción — Ampliación y pintura exterior" onclick="openLightbox(this)">
+        <img src="assets/imgs/vid_construccion_ext.jpg" alt="Ampliación pintura construcción exterior" loading="lazy" />
+        <div class="play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+        <div class="portfolio-overlay"><div><div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:15px;color:white;">▶ Ampliación Exterior</div><div style="font-size:11px;color:#ccc;">Video de obra</div></div></div>
+      </div>
+
+      <div class="portfolio-item gallery-item" data-cat="construccion video" data-type="video" data-src="assets/videos/vid_alero.mp4" data-thumb="assets/imgs/vid_alero.jpg" data-caption="Construcción — Alero y cielo raso" onclick="openLightbox(this)">
+        <img src="assets/imgs/vid_alero.jpg" alt="Alero cielo raso construcción" loading="lazy" />
+        <div class="play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+        <div class="portfolio-overlay"><div><div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:15px;color:white;">▶ Alero y Cielo</div><div style="font-size:11px;color:#ccc;">Video de obra</div></div></div>
+      </div>
+
+      <div class="portfolio-item gallery-item" data-cat="techumbre video" data-type="video" data-src="assets/videos/vid_techo_sierra.mp4" data-thumb="assets/imgs/vid_techo_sierra.jpg" data-caption="Techumbre — Trabajo en techo con sierra circular" onclick="openLightbox(this)">
+        <img src="assets/imgs/vid_techo_sierra.jpg" alt="Trabajo techo sierra circular techumbre Los Andes" loading="lazy" />
+        <div class="play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+        <div class="portfolio-overlay"><div><div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:15px;color:white;">▶ Techo en Proceso</div><div style="font-size:11px;color:#ccc;">Video de obra</div></div></div>
+      </div>
+
+      <div class="portfolio-item gallery-item" data-cat="techumbre video" data-type="video" data-src="assets/videos/vid_techo2.mp4" data-thumb="assets/imgs/vid_techo2.jpg" data-caption="Techumbre — Instalación de cubierta" onclick="openLightbox(this)">
+        <img src="assets/imgs/vid_techo2.jpg" alt="Instalación cubierta techumbre" loading="lazy" />
+        <div class="play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+        <div class="portfolio-overlay"><div><div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:15px;color:white;">▶ Instalación Cubierta</div><div style="font-size:11px;color:#ccc;">Video de obra</div></div></div>
+      </div>
+
+      <div class="portfolio-item gallery-item" data-cat="techumbre video" data-type="video" data-src="assets/videos/vid_techo3.mp4" data-thumb="assets/imgs/vid_techo3.jpg" data-caption="Techumbre — Detalle cubierta terminada" onclick="openLightbox(this)">
+        <img src="assets/imgs/vid_techo3.jpg" alt="Detalle cubierta terminada techumbre shingles" loading="lazy" />
+        <div class="play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+        <div class="portfolio-overlay"><div><div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:15px;color:white;">▶ Cubierta Terminada</div><div style="font-size:11px;color:#ccc;">Video de obra</div></div></div>
+      </div>
+
+      <div class="portfolio-item gallery-item" data-cat="construccion video" data-type="video" data-src="assets/videos/vid_misc1.mp4" data-thumb="assets/imgs/vid_misc1.jpg" data-caption="Construcción — Trabajo en obra" onclick="openLightbox(this)">
+        <img src="assets/imgs/vid_misc1.jpg" alt="Trabajo en obra construcción Los Andes" loading="lazy" />
+        <div class="play-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+        <div class="portfolio-overlay"><div><div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:15px;color:white;">▶ En Obra</div><div style="font-size:11px;color:#ccc;">Video de construcción</div></div></div>
+      </div>
+
+    </div><!-- end portfolio-grid -->
+
+    <!-- Counter -->
+    <div class="text-center mt-6 fade-up">
+      <span id="portfolio-count" style="font-family:'Barlow Condensed',sans-serif;font-size:13px;letter-spacing:2px;color:#666;text-transform:uppercase;"></span>
+    </div>
+
+    <div class="mt-10 text-center fade-up">
+      <a href="https://wa.me/56923607215?text=Hola%20Cristian%2C%20me%20interesan%20tus%20proyectos" target="_blank" class="btn-ghost">
+        Ver Más Trabajos por WhatsApp
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ZONAS ═══ -->
+<section id="cobertura" class="py-20" style="background:var(--carbon);">
+  <div class="max-w-5xl mx-auto px-6 text-center fade-up">
+    <div class="sos-divider mb-6"><span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:12px;letter-spacing:4px;text-transform:uppercase;color:var(--sos);">Zona de Cobertura</span></div>
+    <h2 style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(30px,5vw,52px);text-transform:uppercase;color:white;margin-bottom:12px;">¿Llegamos a tu <span style="color:var(--sos);">Sector?</span></h2>
+    <p style="color:#9AA0AC;font-size:16px;margin-bottom:36px;">Cubrimos toda la Provincia de Aconcagua. Si tienes una emergencia, confirma tu ubicación.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-bottom:36px;">
+      <div class="zone-pill">📍 Los Andes</div>
+      <div class="zone-pill">📍 San Felipe</div>
+      <div class="zone-pill">📍 Calle Larga</div>
+      <div class="zone-pill">📍 Rinconada</div>
+      <div class="zone-pill">📍 San Esteban</div>
+      <div class="zone-pill">📍 Santa María</div>
+    </div>
+    <div style="background:rgba(232,16,16,0.05);border:1px dashed rgba(232,16,16,0.2);border-radius:4px;padding:16px 24px;display:inline-block;">
+      <span style="font-size:14px;color:#9AA0AC;">¿No ves tu sector? </span>
+      <a href="https://wa.me/56923607215?text=Hola%2C%20estoy%20en%20un%20sector%20y%20necesito%20confirmar%20cobertura" target="_blank" style="color:var(--sos);font-weight:600;text-decoration:none;font-size:14px;">Consulta disponibilidad →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TESTIMONIOS ═══ -->
+<section class="py-16" style="background:var(--gunmetal);">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="fade-up" style="background:var(--carbon);border:1px solid rgba(255,255,255,0.06);padding:28px;border-radius:2px;">
+        <div style="color:var(--sos);font-size:24px;margin-bottom:12px;">★★★★★</div>
+        <p style="color:#ccc;font-size:15px;line-height:1.8;margin-bottom:20px;font-style:italic;">"Llamé a las 2 AM por una fuga de gas. Llegó en menos de 45 minutos y resolvió todo. Un profesional de verdad, con equipo de detección certificado."</p>
+        <div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:rgba(232,16,16,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--sos);font-family:'Barlow Condensed',sans-serif;">M</div><div><div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:15px;color:white;">María G.</div><div style="font-size:12px;color:#666;">Los Andes · Emergencia Gas</div></div></div>
+      </div>
+      <div class="fade-up" style="background:var(--carbon);border:1px solid rgba(255,255,255,0.06);padding:28px;border-radius:2px;transition-delay:.05s">
+        <div style="color:var(--sos);font-size:24px;margin-bottom:12px;">★★★★★</div>
+        <p style="color:#ccc;font-size:15px;line-height:1.8;margin-bottom:20px;font-style:italic;">"Le encargué la remodelación del techo y la carpintería. Trabajo impecable, en plazo y con materiales de primera. Se nota la experiencia."</p>
+        <div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:rgba(232,16,16,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--sos);font-family:'Barlow Condensed',sans-serif;">R</div><div><div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:15px;color:white;">Roberto A.</div><div style="font-size:12px;color:#666;">San Felipe · Techumbre</div></div></div>
+      </div>
+      <div class="fade-up" style="background:var(--carbon);border:1px solid rgba(255,255,255,0.06);padding:28px;border-radius:2px;transition-delay:.1s">
+        <div style="color:var(--sos);font-size:24px;margin-bottom:12px;">★★★★★</div>
+        <p style="color:#ccc;font-size:15px;line-height:1.8;margin-bottom:20px;font-style:italic;">"Técnico con certificaciones reales, trabaja bajo norma y entrega informe. Exactamente lo que necesitábamos para el edificio."</p>
+        <div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:rgba(232,16,16,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--sos);font-family:'Barlow Condensed',sans-serif;">C</div><div><div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:15px;color:white;">Carlos M.</div><div style="font-size:12px;color:#666;">Calle Larga · Administrador</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CONTACTO ═══ -->
+<section id="contacto" class="py-24" style="background:var(--carbon);">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid lg:grid-cols-2 gap-16">
+      <div class="fade-up">
+        <div class="sos-badge mb-6">Contacto Directo</div>
+        <h2 style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(36px,5vw,60px);text-transform:uppercase;color:white;line-height:1.05;margin-bottom:16px;">Solicita Tu<br><span style="color:var(--sos);">Presupuesto</span></h2>
+        <p style="color:#9AA0AC;font-size:16px;line-height:1.8;margin-bottom:36px;">Para emergencias, llama o escribe por WhatsApp ahora mismo. Para proyectos, completa el formulario y te contactamos en menos de 2 horas.</p>
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <a href="tel:+56923607215" style="text-decoration:none;">
+            <div style="display:flex;align-items:center;gap:16px;padding:18px 20px;background:var(--gunmetal);border:1px solid rgba(255,255,255,0.07);border-radius:3px;" onmouseover="this.style.borderColor='rgba(232,16,16,0.3)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)'">
+              <div style="width:46px;height:46px;background:rgba(232,16,16,0.1);border:1px solid rgba(232,16,16,0.2);border-radius:3px;display:flex;align-items:center;justify-content:center;color:var(--sos);flex-shrink:0;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+              <div><div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#666;margin-bottom:2px;">Teléfono de Emergencia</div><div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:22px;color:white;">+56 9 2360 7215</div></div>
+              <div style="margin-left:auto;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:11px;color:var(--sos);letter-spacing:2px;text-transform:uppercase;">24/7</div>
+            </div>
+          </a>
+          <a href="https://wa.me/56923607215" target="_blank" style="text-decoration:none;">
+            <div style="display:flex;align-items:center;gap:16px;padding:18px 20px;background:var(--gunmetal);border:1px solid rgba(255,255,255,0.07);border-radius:3px;" onmouseover="this.style.borderColor='rgba(37,211,102,0.3)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)'">
+              <div style="width:46px;height:46px;background:rgba(37,211,102,0.1);border:1px solid rgba(37,211,102,0.2);border-radius:3px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="20" height="20" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></div>
+              <div><div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#666;margin-bottom:2px;">WhatsApp Business</div><div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:22px;color:white;">Escribir Ahora</div></div>
+              <div style="margin-left:auto;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9AA0AC" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+            </div>
+          </a>
+          <a href="mailto:cristianrvenega2001@gmail.com" style="text-decoration:none;">
+            <div style="display:flex;align-items:center;gap:16px;padding:18px 20px;background:var(--gunmetal);border:1px solid rgba(255,255,255,0.07);border-radius:3px;" onmouseover="this.style.borderColor='rgba(255,255,255,0.2)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)'">
+              <div style="width:46px;height:46px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:3px;display:flex;align-items:center;justify-content:center;color:#9AA0AC;flex-shrink:0;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"/></svg></div>
+              <div><div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#666;margin-bottom:2px;">Correo</div><div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:16px;color:white;">cristianrvenega2001@gmail.com</div></div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div class="fade-up" style="transition-delay:.1s">
+        <div style="background:var(--gunmetal);border:1px solid rgba(255,255,255,0.08);border-radius:3px;padding:36px;">
+          <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:24px;color:white;text-transform:uppercase;margin-bottom:6px;">Solicitar Presupuesto</h3>
+          <p style="color:#666;font-size:14px;margin-bottom:28px;">Te respondemos en menos de 2 horas en horario hábil.</p>
+          <form id="contactForm" onsubmit="handleSubmit(event)" style="display:flex;flex-direction:column;gap:20px;">
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div><label class="form-label">Nombre *</label><input type="text" class="form-input" placeholder="Tu nombre completo" required /></div>
+              <div><label class="form-label">Teléfono *</label><input type="tel" class="form-input" placeholder="+56 9 XXXX XXXX" required /></div>
+            </div>
+            <div><label class="form-label">Sector / Comuna *</label>
+              <select class="form-input" required style="cursor:pointer;">
+                <option value="" style="background:#2A2D33;">Selecciona tu sector</option>
+                <option style="background:#2A2D33;">Los Andes</option><option style="background:#2A2D33;">San Felipe</option><option style="background:#2A2D33;">Calle Larga</option><option style="background:#2A2D33;">Rinconada</option><option style="background:#2A2D33;">San Esteban</option><option style="background:#2A2D33;">Santa María</option><option style="background:#2A2D33;">Otro sector</option>
+              </select>
+            </div>
+            <div><label class="form-label">Tipo de Servicio *</label>
+              <select class="form-input" required style="cursor:pointer;">
+                <option value="" style="background:#2A2D33;">¿Qué necesitas?</option>
+                <option style="background:#2A2D33;">🚨 Emergencia Eléctrica (Urgente)</option>
+                <option style="background:#2A2D33;">🚨 Emergencia Gasfitería (Urgente)</option>
+                <option style="background:#2A2D33;">🏠 Techumbre (nueva o reparación)</option>
+                <option style="background:#2A2D33;">🪚 Carpintería y Puertas</option>
+                <option style="background:#2A2D33;">🎨 Pintura y Terminaciones</option>
+                <option style="background:#2A2D33;">🔩 Estructura Metálica</option>
+                <option style="background:#2A2D33;">🏗️ Construcción / Ampliación</option>
+                <option style="background:#2A2D33;">🔧 Mantención Preventiva</option>
+              </select>
+            </div>
+            <div><label class="form-label">Describe el Problema o Proyecto</label><textarea class="form-input" rows="4" placeholder="Cuéntame con detalle qué necesitas..."></textarea></div>
+            <button type="submit" class="btn-sos" style="width:100%;justify-content:center;font-size:16px;padding:18px;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              Enviar Solicitud
+            </button>
+          </form>
+          <div id="form-success" style="display:none;text-align:center;padding:32px;">
+            <div style="font-size:48px;margin-bottom:16px;">✅</div>
+            <div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:24px;color:white;text-transform:uppercase;margin-bottom:8px;">¡Solicitud Enviada!</div>
+            <p style="color:#9AA0AC;font-size:15px;">Te contactaremos en breve. Para urgencias, llama ahora mismo.</p>
+            <a href="tel:+56923607215" class="btn-sos" style="margin-top:20px;display:inline-flex;">Llamar Ahora</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background:#0C0D0E;border-top:1px solid rgba(255,255,255,0.05);padding:48px 0 24px;">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid md:grid-cols-3 gap-10 mb-10">
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <div style="width:42px;height:42px;background:var(--sos);border-radius:2px;display:flex;align-items:center;justify-content:center;"><span style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:15px;color:white;">SOS</span></div>
+          <div><div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:18px;color:white;letter-spacing:1px;">HOGAR 24/7</div><div style="font-size:10px;color:#666;letter-spacing:2px;text-transform:uppercase;">Los Andes · Región de Valparaíso</div></div>
+        </div>
+        <p style="color:#555;font-size:14px;line-height:1.8;">Técnico certificado SENCE con 28 años de experiencia en electricidad, gasfitería, techumbre, carpintería y terminaciones. Provincia de Aconcagua.</p>
+      </div>
+      <div>
+        <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:13px;letter-spacing:3px;text-transform:uppercase;color:#666;margin-bottom:16px;">Servicios</div>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <a href="#servicios" style="color:#888;font-size:14px;text-decoration:none;" onmouseover="this.style.color='white'" onmouseout="this.style.color='#888'">Electricidad 24/7</a>
+          <a href="#servicios" style="color:#888;font-size:14px;text-decoration:none;" onmouseover="this.style.color='white'" onmouseout="this.style.color='#888'">Gasfitería Urgente</a>
+          <a href="#servicios" style="color:#888;font-size:14px;text-decoration:none;" onmouseover="this.style.color='white'" onmouseout="this.style.color='#888'">Techumbre y Cubiertas</a>
+          <a href="#servicios" style="color:#888;font-size:14px;text-decoration:none;" onmouseover="this.style.color='white'" onmouseout="this.style.color='#888'">Carpintería y Puertas</a>
+          <a href="#servicios" style="color:#888;font-size:14px;text-decoration:none;" onmouseover="this.style.color='white'" onmouseout="this.style.color='#888'">Pintura y Terminaciones</a>
+          <a href="#servicios" style="color:#888;font-size:14px;text-decoration:none;" onmouseover="this.style.color='white'" onmouseout="this.style.color='#888'">Estructuras Metálicas</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:13px;letter-spacing:3px;text-transform:uppercase;color:#666;margin-bottom:16px;">Contacto</div>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <a href="tel:+56923607215" style="display:flex;align-items:center;gap:10px;color:#888;text-decoration:none;font-size:14px;" onmouseover="this.style.color='white'" onmouseout="this.style.color='#888'"><span style="color:var(--sos);">📞</span>+56 9 2360 7215</a>
+          <a href="https://wa.me/56923607215" target="_blank" style="display:flex;align-items:center;gap:10px;color:#888;text-decoration:none;font-size:14px;" onmouseover="this.style.color='white'" onmouseout="this.style.color='#888'"><span>💬</span>WhatsApp 24/7</a>
+          <a href="mailto:cristianrvenega2001@gmail.com" style="display:flex;align-items:center;gap:10px;color:#888;text-decoration:none;font-size:14px;" onmouseover="this.style.color='white'" onmouseout="this.style.color='#888'"><span>✉️</span>cristianrvenega2001@gmail.com</a>
+          <div style="display:flex;align-items:center;gap:10px;color:#555;font-size:14px;"><span>📍</span>Los Andes, Región de Valparaíso</div>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:1px solid rgba(255,255,255,0.05);padding-top:20px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;align-items:center;">
+      <div style="font-size:13px;color:#444;">© 2026 SOS Hogar 24/7 — Cristian Venega Gómez. Todos los derechos reservados.</div>
+      <div style="font-size:13px;color:#444;">RUT: 13.364.625-6 · Los Andes, Chile</div>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══ SCRIPTS ═══ -->
+<script>
+  // Marquee duplication
+  (function(){
+    var t = document.getElementById('marquee-track');
+    if(t){ t.innerHTML += t.innerHTML; }
+  })();
+
+  // Navbar scroll
+  window.addEventListener('scroll',function(){
+    var n = document.getElementById('navbar');
+    n.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Mobile menu
+  function toggleMenu(){
+    document.getElementById('mobile-menu').classList.toggle('open');
+  }
+
+  // Fade-up observer
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('visible'); });
+  },{threshold:.08,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.fade-up').forEach(function(el){ obs.observe(el); });
+
+  // LIGHTBOX
+  var allItems = [];
+  var currentLightboxIdx = 0;
+
+  function buildItems(filter){
+    var items = Array.from(document.querySelectorAll('#portfolio-grid .portfolio-item'));
+    if(filter === 'all') return items.filter(function(i){ return i.style.display !== 'none'; });
+    return items.filter(function(i){
+      var cat = i.getAttribute('data-cat') || '';
+      return cat.indexOf(filter) !== -1 && i.style.display !== 'none';
+    });
+  }
+
+  function openLightbox(el){
+    var type = el.getAttribute('data-type');
+    var src = el.getAttribute('data-src');
+    var caption = el.getAttribute('data-caption') || '';
+    var img = document.getElementById('lightbox-img');
+    var vid = document.getElementById('lightbox-video');
+    var cap = document.getElementById('lightbox-caption');
+
+    // Build navigation list from visible items
+    allItems = Array.from(document.querySelectorAll('#portfolio-grid .portfolio-item')).filter(function(i){
+      return i.style.display !== 'none';
+    });
+    currentLightboxIdx = allItems.indexOf(el);
+
+    if(type === 'video'){
+      img.style.display = 'none';
+      vid.style.display = 'block';
+      vid.src = src;
+      vid.play();
+    } else {
+      vid.style.display = 'none';
+      vid.pause();
+      vid.src = '';
+      img.style.display = 'block';
+      img.src = src;
+    }
+    cap.textContent = caption;
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox(){
+    document.getElementById('lightbox').classList.remove('open');
+    var vid = document.getElementById('lightbox-video');
+    vid.pause(); vid.src = '';
+    document.body.style.overflow = '';
+  }
+
+  function closeLightboxBg(e){
+    if(e.target === document.getElementById('lightbox')) closeLightbox();
+  }
+
+  function navLightbox(dir){
+    if(!allItems.length) return;
+    currentLightboxIdx = (currentLightboxIdx + dir + allItems.length) % allItems.length;
+    var next = allItems[currentLightboxIdx];
+    var type = next.getAttribute('data-type');
+    var src = next.getAttribute('data-src');
+    var caption = next.getAttribute('data-caption') || '';
+    var img = document.getElementById('lightbox-img');
+    var vid = document.getElementById('lightbox-video');
+    document.getElementById('lightbox-caption').textContent = caption;
+
+    vid.pause(); vid.src = '';
+    if(type === 'video'){
+      img.style.display = 'none';
+      vid.style.display = 'block';
+      vid.src = src;
+      vid.play();
+    } else {
+      vid.style.display = 'none';
+      img.style.display = 'block';
+      img.src = src;
+    }
+  }
+
+  document.addEventListener('keydown',function(e){
+    var lb = document.getElementById('lightbox');
+    if(!lb.classList.contains('open')) return;
+    if(e.key === 'Escape') closeLightbox();
+    if(e.key === 'ArrowRight') navLightbox(1);
+    if(e.key === 'ArrowLeft') navLightbox(-1);
+  });
+
+  // PORTFOLIO FILTER
+  var currentFilter = 'all';
+  function filterPortfolio(cat, btn){
+    currentFilter = cat;
+    document.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
+    btn.classList.add('active');
+
+    var items = document.querySelectorAll('#portfolio-grid .portfolio-item');
+    var shown = 0;
+    items.forEach(function(item){
+      var itemCat = item.getAttribute('data-cat') || '';
+      var show = cat === 'all' || itemCat.indexOf(cat) !== -1;
+      item.style.display = show ? '' : 'none';
+      if(show) shown++;
+    });
+    document.getElementById('portfolio-count').textContent = shown + ' proyecto' + (shown !== 1 ? 's' : '') + ' mostrado' + (shown !== 1 ? 's' : '');
+  }
+
+  // Init count
+  window.addEventListener('DOMContentLoaded',function(){
+    var total = document.querySelectorAll('#portfolio-grid .portfolio-item').length;
+    document.getElementById('portfolio-count').textContent = total + ' proyectos';
+  });
+
+  // FORM
+  function handleSubmit(e){
+    e.preventDefault();
+    var form = e.target;
+    var name = form.querySelector('input[type="text"]').value;
+    var phone = form.querySelector('input[type="tel"]').value;
+    var sector = form.querySelectorAll('select')[0].value;
+    var service = form.querySelectorAll('select')[1].value;
+    var desc = form.querySelector('textarea').value;
+    var msg = 'Hola Cristian, quiero solicitar un servicio:%0A%0A*Nombre:* '+encodeURIComponent(name)+'%0A*Teléfono:* '+encodeURIComponent(phone)+'%0A*Sector:* '+encodeURIComponent(sector)+'%0A*Servicio:* '+encodeURIComponent(service)+'%0A*Descripción:* '+encodeURIComponent(desc);
+    document.getElementById('contactForm').style.display = 'none';
+    document.getElementById('form-success').style.display = 'block';
+    setTimeout(function(){ window.open('https://wa.me/56923607215?text='+msg,'_blank'); },800);
+  }
+</script>
+</body>
+</html>
