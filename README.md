@@ -13,7 +13,7 @@
 
 ## 📋 Descripción
 
-Plataforma web para **SOS Hogar 24/7**, servicio técnico de emergencias y construcción operado por Cristian Venega Gómez, técnico certificado SENCE con 28 años de experiencia en Los Andes, Región de Valparaíso.
+Plataforma web para **SOS Hogar 24/7**, servicio técnico de emergencias y construcción operado por Cristian Venega Gómez, técnico con 994 horas de formación (Santo Tomás, SENCE, ACHS) y 28 años de experiencia en Los Andes, Región de Valparaíso.
 
 El sitio actúa como vitrina digital y canal de captación de clientes, con integración directa a WhatsApp y formulario de presupuestos.
 
@@ -24,11 +24,13 @@ El sitio actúa como vitrina digital y canal de captación de clientes, con inte
 - 📱 **Diseño responsive** — optimizado para móviles donde llega el 90% del tráfico de emergencias
 - ⚡ **CTA de emergencia directo** — botón de WhatsApp y llamada disponibles en todo momento
 - 🖼️ **Portafolio filtrable** — galería de proyectos reales por categoría con lightbox
-- 📝 **Formulario de presupuestos** — integrado con Netlify Forms
+- 📝 **Formulario de presupuestos** — envía la solicitud por WhatsApp, con aceptación de la Política de Privacidad
 - 🗺️ **Cobertura por comunas** — sección de zona de servicio (Los Andes, San Felipe, Calle Larga, Rinconada, San Esteban, Santa María)
 - ⭐ **Testimonios** — sección de reseñas de clientes reales
-- 🎓 **Certificaciones** — display de certificados SENCE, Santo Tomás y ACHS
-- 🔍 **SEO optimizado** — meta tags, Schema.org, Open Graph y sitemap.xml
+- 🎓 **Estudios** — Santo Tomás (300 h, nota 6,7), SENCE y ACHS, más experiencia en minería e industria
+- 🎨 **Portada animada** — fondo dinámico en rojo, naranja y ámbar con avatar 3D; barra fija Llamar/WhatsApp/Cotizar en celular
+- 🔍 **SEO** — meta tags, Open Graph, robots.txt y sitemap.xml
+- 🔒 **Seguridad y Ley 21.719** — cabeceras HTTP estrictas en `_headers` (CSP sin código en línea ni recursos externos) y página `privacidad.html`
 - 📍 **Geo meta tags** — orientado a búsquedas locales de la Provincia de Aconcagua
 
 ---
@@ -38,8 +40,8 @@ El sitio actúa como vitrina digital y canal de captación de clientes, con inte
 | Categoría | Tecnología |
 |---|---|
 | Frontend | HTML5 · CSS3 · JavaScript vanilla |
-| Formularios | Netlify Forms |
-| Deploy | Netlify (CD automático desde GitHub) |
+| Formularios | Envío por WhatsApp (sin base de datos) |
+| Deploy | Netlify (arrastrar la carpeta en Deploys) |
 | SEO | Schema.org · Open Graph · sitemap.xml · robots.txt |
 | Contacto | WhatsApp Business API · tel: links |
 
@@ -50,10 +52,15 @@ El sitio actúa como vitrina digital y canal de captación de clientes, con inte
 ```
 SOS_Hogar_247/
 ├── index.html          # Página principal
+├── privacidad.html     # Política de Privacidad (Ley 21.719)
+├── _headers            # Cabeceras de seguridad para Netlify
+├── css/styles.css      # Estilos
+├── js/main.js          # Galería, visor y formulario
 ├── assets/
+│   ├── fonts/          # Tipografías alojadas en el sitio
+│   ├── img/            # Logo, avatar 3D, íconos e imagen para redes
 │   ├── imgs/           # Fotos de proyectos y perfil
-│   ├── logo.svg        # Logo de la empresa
-│   └── ...
+│   └── videos/         # Videos de obras
 └── google[...].html    # Verificación Google Search Console
 ```
 
@@ -72,7 +79,7 @@ SOS_Hogar_247/
 
 ## 📞 Contacto del negocio
 
-- **WhatsApp:** +56 9 2360 7215
+- **WhatsApp:** +56 9 9842 8974
 - **Email:** cristianrvenega2001@gmail.com
 - **Zona:** Los Andes, Región de Valparaíso, Chile
 

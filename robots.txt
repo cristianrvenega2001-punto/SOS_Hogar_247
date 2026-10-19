@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://soshogar24-7.netlify.app/sitemap.xml
