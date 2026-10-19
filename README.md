@@ -24,11 +24,12 @@ El sitio actúa como vitrina digital y canal de captación de clientes, con inte
 - 📱 **Diseño responsive** — optimizado para móviles donde llega el 90% del tráfico de emergencias
 - ⚡ **CTA de emergencia directo** — botón de WhatsApp y llamada disponibles en todo momento
 - 🖼️ **Portafolio filtrable** — galería de proyectos reales por categoría con lightbox
-- 📝 **Formulario de presupuestos** — integrado con Netlify Forms
+- 📝 **Formulario de presupuestos** — envía la solicitud por WhatsApp, con aceptación de la Política de Privacidad
 - 🗺️ **Cobertura por comunas** — sección de zona de servicio (Los Andes, San Felipe, Calle Larga, Rinconada, San Esteban, Santa María)
 - ⭐ **Testimonios** — sección de reseñas de clientes reales
 - 🎓 **Certificaciones** — display de certificados SENCE, Santo Tomás y ACHS
-- 🔍 **SEO optimizado** — meta tags, Schema.org, Open Graph y sitemap.xml
+- 🔍 **SEO** — meta tags, Open Graph, robots.txt y sitemap.xml
+- 🔒 **Seguridad y Ley 21.719** — cabeceras HTTP en `netlify.toml` y página `privacidad.html`
 - 📍 **Geo meta tags** — orientado a búsquedas locales de la Provincia de Aconcagua
 
 ---
@@ -72,7 +73,7 @@ SOS_Hogar_247/
 
 ## 📞 Contacto del negocio
 
-- **WhatsApp:** +56 9 2360 7215
+- **WhatsApp:** +56 9 9842 8974
 - **Email:** cristianrvenega2001@gmail.com
 - **Zona:** Los Andes, Región de Valparaíso, Chile
 
